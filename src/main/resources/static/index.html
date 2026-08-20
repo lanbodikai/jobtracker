@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Job application dashboard">
+  <title>Job Tracker Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">APPLICATIONS</p>
+        <h1>Job Tracker</h1>
+        <p class="subtitle">A clear view of your search, all in one place.</p>
+      </div>
+      <button class="refresh-button" id="refresh-button" type="button">
+        <span aria-hidden="true">↻</span> Refresh
+      </button>
+    </header>
+
+    <div class="notice" id="notice" role="status" aria-live="polite"></div>
+
+    <section class="metrics" aria-label="Application summary">
+      <article class="metric-card metric-card--primary">
+        <p>Total applications</p>
+        <strong id="total-count">—</strong>
+        <span>Tracked in your pipeline</span>
+      </article>
+      <article class="metric-card">
+        <p>Active applications</p>
+        <strong id="active-count">—</strong>
+        <span>Still in progress</span>
+      </article>
+      <article class="metric-card">
+        <p>Interviews</p>
+        <strong id="interview-count">—</strong>
+        <span>Interview stages reached</span>
+      </article>
+      <article class="metric-card">
+        <p>Offers</p>
+        <strong id="offer-count">—</strong>
+        <span>Offers received</span>
+      </article>
+    </section>
+
+    <section class="visual-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">PIPELINE</p>
+            <h2>Applications by status</h2>
+          </div>
+          <span class="panel-total" id="pipeline-total">—</span>
+        </div>
+        <div class="status-list" id="status-list">
+          <p class="empty-state">Loading your pipeline…</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">MOMENTUM</p>
+            <h2>Applications over time</h2>
+          </div>
+          <span class="panel-total">Last 8 weeks</span>
+        </div>
+        <div class="activity-chart" id="activity-chart" aria-label="Applications per week">
+          <p class="empty-state">Loading activity…</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel applications-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">LATEST</p>
+          <h2>Recent applications</h2>
+        </div>
+        <span class="panel-total" id="last-updated">—</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Company</th>
+              <th scope="col">Role</th>
+              <th scope="col">Status</th>
+              <th scope="col">Applied</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody id="applications-table">
+            <tr><td colspan="5" class="empty-state">Loading applications…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">Your data is loaded directly from the job tracker database.</footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
